@@ -6,6 +6,7 @@ interface item {
   completed: boolean;
 }
 
+//These two items will be displayed on the screen.
 export const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<item[]>([
     { id: 1, text: "Learn Typescript", completed: false },
@@ -14,7 +15,6 @@ export const TodoList: React.FC = () => {
 
   const [input, setInput] = useState<string>("");
 
-  //if
   const handleToggle = (id: number) => {
     setTodos(
       todos.map((todo) => {
@@ -26,6 +26,7 @@ export const TodoList: React.FC = () => {
     );
   };
 
+  //When the "Add" button is clicked, the new todo will be added to the list.
   const handleClick = () => {
     const newTodo: item = { id: Date.now(), text: input, completed: false };
     setTodos([...todos, newTodo]);
